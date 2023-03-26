@@ -55,6 +55,10 @@ module {
 
   public type Return<T> = Result.Result<T,Error>;
 
+  public type FileshareService = actor {
+    export : shared (Path, ?[Principal], ?Mode) -> async Return<Mount>;
+  };
+
   public type IC = actor {
     update_settings : shared ({
       canister_id : Principal;
