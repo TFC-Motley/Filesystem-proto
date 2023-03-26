@@ -52,6 +52,10 @@ module {
     }));
   };
 
+  public func mount( fs : Filesystem, m : Mount ) : () {
+    fs.inodes := Array.thaw<Inode>(m);
+  };
+
   func is_root( fs : Filesystem, p : Principal ) : Bool { Principal.Base.equal(fs.root, p) };
 
   public func touch( fs : Filesystem, p : Path, eid : Principal ) : Return<Index> {
