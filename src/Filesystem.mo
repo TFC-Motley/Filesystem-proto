@@ -319,7 +319,7 @@ module {
     let stack = Stack.Stack<Path>();
     while ( Path.is_root(dpath) == false ) {
       stack.push(dpath);
-      dpath := Path.dirname(p);
+      dpath := Path.dirname(dpath);
     };
     while ( Option.isSome( stack.peek() ) ){
       Debug.print("stack not empty");
